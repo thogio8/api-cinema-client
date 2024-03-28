@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="show">
+        <p>ID du film : {{ film.id }}</p>
+        <p>Titre du film : {{ film.titre }}</p>
+        <p>Durée du film :
+            {% set heures = (film.duree // 60) %}
+            {% set minutes = (film.duree % 60) %}
+            {{ heures }}h {{ minutes }}min
+        </p>
+        <p>Liste des séances : </p>
+        <ul>
+            {% for seance in film.seances %}
+                <li>{{ seance.dateProjection |format_datetime(pattern='dd/MM/y HH:mm') }}</li>
+            {% endfor %}
+        </ul>
+        <a class="button" href="{{ path('app_films') }}">Retour à l'accueil</a>
+    </div>
+
+{% endblock %}

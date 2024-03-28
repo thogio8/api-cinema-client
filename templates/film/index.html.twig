@@ -3,30 +3,17 @@
 {% block title %}Liste des films à l'affiche{% endblock %}
 
 {% block body %}
-    <style>
-        body{
-            background-color: coral;
-            width: 80%;
-            margin: auto;
-        }
 
-        .film{
-            display: flex;
-            justify-content: space-between;
-            min-width: 1080px;
-            max-width: 1080px;
-            column-gap: 50px;
-            font-weight: bold;
-            font-size: 1.25rem;
-            border-bottom: 2px solid black;
-        }
-
-    </style>
     {% for film in films %}
         <div class="film">
             <p>Id du film : {{ film.id }}</p>
             <p>Titre du film : {{ film.titre }}</p>
-            <p>Durée du film (en minutes) : {{ film.duree }}</p>
+            <p>Durée du film :
+                {% set heures = (film.duree // 60) %}
+                {% set minutes = (film.duree % 60) %}
+                {{ heures }}h {{ minutes }}min
+            </p>
+            <a class='button' href="{{ path('app_films_show', {'id':film.id}) }}">Voir le detail</a>
         </div>
     {% endfor %}
 
