@@ -1,29 +1,26 @@
 .hover-highlight:hover {
-    background-color: #f8f9fa; /* A light grey to highlight on hover */
-    cursor: pointer; /* Change the cursor to indicate interactiveness */
-    transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .list-group-item-action:hover {
-    color: #0056b3; /* Bootstrap primary color on hover for list items */
+    color: #0056b3;
 }
 
-/* Adding a bit of padding inside the card for better spacing */
 .card-body {
     padding: 2rem;
 }
 
-/* Making the primary text a bit larger for better readability */
 .text-primary {
     font-size: 1.75rem;
-    color: #007bff; /* Bootstrap primary color */
+    color: #007bff;
 }
 
 .text-secondary {
-    color: #6c757d; /* Bootstrap secondary color */
+    color: #6c757d;
 }
 
-/* Adding Bootstrap icons font style */
 .bi {
     vertical-align: -.125em;
     fill: currentColor;
