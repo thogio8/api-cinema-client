@@ -1,21 +1,58 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Liste des films à l'affiche{% endblock %}#}
+
+{#{% block body %}#}
+{#    <div class="d-flex flex-wrap gap-4 justify-content-center">#}
+{#        {% for film in films %}#}
+{#            <div class="card" style="width: 18rem;">#}
+{#                <div class="card-header">#}
+{#                    ID du film : {{ film.id }}#}
+{#                </div>#}
+{#                <div class="card-body">#}
+{#                    <h5 class="card-title">{{ film.titre }}</h5>#}
+{#                    <h6 class="card-subtitle mb-2 text-body-secondary">Durée du film :#}
+{#                        {% set heures = (film.duree // 60) %}#}
+{#                        {% set minutes = (film.duree % 60) %}#}
+{#                        {{ heures }}h {{ minutes }}min</h6>#}
+{#                    <a href="{{ path('app_films_show', {'id':film.id}) }}" class="card-link">Detail du film</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    </div>#}
+
+
+
+{#{% endblock %}#}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste des films à l'affiche{% endblock %}
 
 {% block body %}
-
-    {% for film in films %}
-        <div class="film">
-            <p>Id du film : {{ film.id }}</p>
-            <p>Titre du film : {{ film.titre }}</p>
-            <p>Durée du film :
-                {% set heures = (film.duree // 60) %}
-                {% set minutes = (film.duree % 60) %}
-                {{ heures }}h {{ minutes }}min
-            </p>
-            <a class='button' href="{{ path('app_films_show', {'id':film.id}) }}">Voir le detail</a>
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for film in films %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            ID du film : {{ film.id }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ film.titre }}</h5>
+                            <p class="card-text">
+                                Durée du film :
+                                {% set heures = (film.duree // 60) %}
+                                {% set minutes = (film.duree % 60) %}
+                                {{ heures }}h {{ minutes }}min
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white">
+                            <a href="{{ path('app_films_show', {'id':film.id}) }}" class="btn btn-primary">Détail du film</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-
-
+    </div>
 {% endblock %}

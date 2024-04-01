@@ -1,22 +1,73 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block body %}#}
+
+{#    <div class="container mt-5">#}
+{#        <div class="row">#}
+{#            <div class="col-lg-8 mx-auto">#}
+{#                <div class="card">#}
+{#                    <div class="card-body">#}
+{#                        <h2 class="card-title">{{ film.titre }}</h2>#}
+{#                        <h6 class="text-muted">ID du film: {{ film.id }}</h6>#}
+{#                        <p class="card-text">#}
+{#                            <strong>Durée du film:</strong>#}
+{#                            {% set heures = (film.duree // 60) %}#}
+{#                            {% set minutes = (film.duree % 60) %}#}
+{#                            {{ heures }}h {{ minutes }}min#}
+{#                        </p>#}
+{#                        <h4>Liste des séances :</h4>#}
+{#                        <ul class="list-group list-group-flush">#}
+{#                            {% for seance in film.seances %}#}
+{#                                <li class="list-group-item">#}
+{#                                    {{ seance.dateProjection | format_datetime(pattern='dd/MM/y HH:mm') }}#}
+{#                                </li>#}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{#{% endblock %}#}
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
 
-    <div class="show">
-        <p>ID du film : {{ film.id }}</p>
-        <p>Titre du film : {{ film.titre }}</p>
-        <p>Durée du film :
-            {% set heures = (film.duree // 60) %}
-            {% set minutes = (film.duree % 60) %}
-            {{ heures }}h {{ minutes }}min
-        </p>
-        <p>Liste des séances : </p>
-        <ul>
-            {% for seance in film.seances %}
-                <li>{{ seance.dateProjection |format_datetime(pattern='dd/MM/y HH:mm') }}</li>
-            {% endfor %}
-        </ul>
-        <a class="button" href="{{ path('app_films') }}">Retour à l'accueil</a>
+    <div class="container my-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <!-- Title and ID with more emphasis on the title -->
+                        <h2 class="card-title text-primary">{{ film.titre }}</h2>
+                        <h6 class="text-muted">ID du film: {{ film.id }}</h6>
+
+                        <!-- Duration with icon for visual interest -->
+                        <p class="card-text mt-3">
+                            <strong class="ms-2">Durée du film:</strong>
+                            {% set heures = (film.duree // 60) %}
+                            {% set minutes = (film.duree % 60) %}
+                            {{ heures }}h {{ minutes }}min
+                        </p>
+
+                        <!-- Sessions list with improved visuals -->
+                        <div class="mt-4">
+                            <h4 class="text-secondary">Liste des séances :</h4>
+                            <ul class="list-group list-group-flush">
+                                {% for seance in film.seances %}
+                                    <li class="list-group-item list-group-item-action hover-highlight">
+                                        {{ seance.dateProjection | format_datetime(pattern='dd/MM/y HH:mm') }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
+

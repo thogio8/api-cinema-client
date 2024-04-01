@@ -19,7 +19,8 @@ class ApiFilms
     public function getFilms() : array{
         $rep = $this->httpClient->request(
             'GET',
-            'http://172.16.213.1:8000/api/films'
+            'http://localhost:8000/api/films'
+            //'http://172.16.213.1:8000/api/films'
         );
         return $rep->toArray();
     }
@@ -27,7 +28,8 @@ class ApiFilms
     public function getFilmById(int $id): array{
         $rep = $this->httpClient->request(
             'GET',
-            'http://172.16.213.1:8000/api/films/'.$id
+            'http://localhost:8000/api/films/'.$id
+//            'http://172.16.213.1:8000/api/films/'.$id
         );
         return $rep->toArray();
     }

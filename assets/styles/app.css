@@ -1,31 +1,30 @@
-body{
-    background-color: coral;
-    width: 80%;
-    margin: auto;
+.hover-highlight:hover {
+    background-color: #f8f9fa; /* A light grey to highlight on hover */
+    cursor: pointer; /* Change the cursor to indicate interactiveness */
+    transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
 }
 
-p{
-    font-weight: bold;
-    font-size: 1.25rem;
+.list-group-item-action:hover {
+    color: #0056b3; /* Bootstrap primary color on hover for list items */
 }
 
-.button{
-    background-color: lightgray;
-    color: black;
-    text-decoration: none;
-    padding: 15px;
-    text-align: center;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
+/* Adding a bit of padding inside the card for better spacing */
+.card-body {
+    padding: 2rem;
 }
 
-.film{
-    display: flex;
-    justify-content: space-between;
-    min-width: 1080px;
-    max-width: 1080px;
-    column-gap: 50px;
+/* Making the primary text a bit larger for better readability */
+.text-primary {
+    font-size: 1.75rem;
+    color: #007bff; /* Bootstrap primary color */
+}
 
-    border-bottom: 2px solid black;
+.text-secondary {
+    color: #6c757d; /* Bootstrap secondary color */
+}
+
+/* Adding Bootstrap icons font style */
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
 }
